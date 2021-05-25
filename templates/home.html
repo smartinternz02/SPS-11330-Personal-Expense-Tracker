@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>Welcome back, {{ account['username'] }}!</h2>
+
+<h2>Total Money spent</h2>
+<p><span>&#8377;</span>{{ account['balance'] }}</p>
+
+<h2>Your Monthly limit left</h2>
+<p><span>&#8377;</span>{{ account['monthly_limit'] }}</p>
+
+<h2>Add monthly limit</h2>
+<form action="{{ url_for('home') }}" method="post" autocomplete="off">
+<input type="number" name="addlimit" placeholder="add limit" id="addlimit" required>
+<input type="submit" class="button" value="Submit">
+</form>
+
+{% endblock %}
